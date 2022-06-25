@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automatic Report", "Automatic Report.csproj", "{D0520ED3-0EC3-41BA-B67C-B1069D7B2A8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0520ED3-0EC3-41BA-B67C-B1069D7B2A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0520ED3-0EC3-41BA-B67C-B1069D7B2A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0520ED3-0EC3-41BA-B67C-B1069D7B2A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0520ED3-0EC3-41BA-B67C-B1069D7B2A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {348ECD52-088D-4F43-9122-0C2AD4A90C1E}
+	EndGlobalSection
+EndGlobal
