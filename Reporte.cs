@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Automatic_Report.Connection;
 
 namespace Automatic_Report
 {
@@ -15,6 +16,12 @@ namespace Automatic_Report
         public Reporte()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            connectDB dB = new connectDB();
+            dB.ConnectExecute();
         }
     }
 }
