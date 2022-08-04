@@ -18,7 +18,7 @@ namespace Automatic_Report.Connection
         
         public MySqlConnection ConnectExecute()
         {
-            myconnectionStr = System.IO.File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "Config.txt"));
+            myconnectionStr = System.IO.File.ReadAllText("Config.txt");
             try
             {
                 conn = new MySql.Data.MySqlClient.MySqlConnection(myconnectionStr);

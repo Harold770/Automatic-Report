@@ -1,2 +1,1 @@
-"server=127.0.0.1;uid=root;" +
-    "pwd=2254;database=reportes"
+server=127.0.0.1;uid=root; pwd=2254;database=reportes
