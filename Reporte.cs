@@ -29,15 +29,18 @@ namespace Automatic_Report
 
         private void btn_printExcel_Click(object sender, EventArgs e)
         {
-            //ReportExcel excel = new ReportExcel();
-            //excel.outputDir = "C:\\Users\\Harold\\Desktop";
-            //excel.CreateExcel();
-            DataReport data = new DataReport();
+            ReportExcel data = new ReportExcel();
             string StartDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
             string EndDate = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-            DataSet datos = data.ExtractData(StartDate, EndDate);
-            dataGridView1.DataSource = datos.Tables[1];
-            dataGridView1.Refresh();
+            try
+            {
+                data.CreateExcel(StartDate, EndDate);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo Excel se encuentra abierto o la direccion donde se desea guardar no es accesible", "Error Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
