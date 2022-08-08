@@ -52,5 +52,10 @@ namespace Automatic_Report
             }            
 
         }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

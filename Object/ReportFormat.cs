@@ -186,9 +186,9 @@ namespace Automatic_Report.Object
                     worksheetegresos.Cells["B" + NumEgresos.ToString()].Value = DatosEgresos.Tables[0].Rows[i]["concepto"];
                     worksheetegresos.Cells["C" + NumEgresos.ToString()].Value = DatosEgresos.Tables[0].Rows[i]["importe"];
                     worksheetegresos.Cells["C" + NumEgresos.ToString()].Style.Numberformat.Format = "$0.00";
-                    if (NumEgresos>2)
+                    if (NumEgresos > 2)
                     {
-                        worksheetegresos.Cells["G2"].Formula = "=SUM(C2:C" + NumEgresos.ToString() +")";
+                        worksheetegresos.Cells["G2"].Formula = "=SUM(C2:C" + NumEgresos.ToString() + ")";
 
                     }
                     else
@@ -200,7 +200,7 @@ namespace Automatic_Report.Object
                 catch (Exception)
                 {
                     worksheet.Cells["B2"].Value = "NO HAY EGRESOS REGISTRADOS";
-                    
+
                 }
             }
             worksheetegresos.Cells["F2"].Value = "Total Egresos";
@@ -213,7 +213,72 @@ namespace Automatic_Report.Object
 
             //INGRESOS LA PARTE DE INGRESOS NO ESTA LISTA NO SE DONDE SE ENCUENTRAN LOS DATOS QUE
             //ME ESTAN SOLICITANDO
+            using (var range = worksheet.Cells["B19:G19"])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Font.Italic = true;
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                range.Style.Fill.BackgroundColor.SetColor(Color.DarkBlue);
+                range.Style.Font.Color.SetColor(Color.White);
+            }
+            using (var range = worksheet.Cells["B20:B24"])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+                range.Style.Font.Color.SetColor(Color.White);
+            }
+            worksheet.Cells["B18"].Value = "INGRESOS";
+            worksheet.Cells["B19"].Value = "CONCEPTO";
+            worksheet.Cells["G19"].Value = "IMPORTE";
+            //
+            worksheet.Cells["B20"].Value = "EFECTIVO";
+            worksheet.Cells["B21"].Value = "CREDITO";
+            worksheet.Cells["B22"].Value = "DEBITO";
+            worksheet.Cells["B23"].Value = "TRANSFERENCIAS";
 
+            worksheet.Cells["G20"].Value = 0;
+            worksheet.Cells["G21"].Value = 0;
+            worksheet.Cells["G22"].Value = 0;
+            worksheet.Cells["G23"].Value = 0;
+
+            worksheet.Cells["E25"].Value = "TOTAL INGRESOS";
+            worksheet.Cells["G25"].Value = 0;
+
+            //DEPOSITOS
+            using (var range = worksheet.Cells["B28:G28"])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Font.Italic = true;
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                range.Style.Fill.BackgroundColor.SetColor(Color.DarkBlue);
+                range.Style.Font.Color.SetColor(Color.White);
+            }
+            using (var range = worksheet.Cells["B29:B31"])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+                range.Style.Font.Color.SetColor(Color.White);
+            }
+            worksheet.Cells["B27"].Value = "DEPOSITOS";
+            worksheet.Cells["B28"].Value = "INSTITUCION";
+            worksheet.Cells["G28"].Value = "IMPORTE";
+            //
+            worksheet.Cells["B29"].Value = "EFECTIVO";
+            worksheet.Cells["B30"].Value = "CREDITO";
+            worksheet.Cells["B31"].Value = "DEBITO";
+
+            worksheet.Cells["G29"].Value = 0;
+            worksheet.Cells["G30"].Value = 0;
+            worksheet.Cells["G31"].Value = 0;
+            //Guardar excel
             excelReport.Save();
         }
 
@@ -230,8 +295,6 @@ namespace Automatic_Report.Object
             DataSet datos = new DataSet();
             dataAdapter.Fill(datos);
             string command = "CALL SelectCountPrecio('" + StartDate + "', '" + EndDate + "');";
-
-
 
             return datos;
         }
