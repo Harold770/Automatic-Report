@@ -29,7 +29,7 @@ namespace Automatic_Report.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_concepto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,12 +38,12 @@ namespace Automatic_Report.View
             this.btn_add = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txt_concepto
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(109, 20);
-            this.textBox1.TabIndex = 1;
+            this.txt_concepto.Location = new System.Drawing.Point(56, 52);
+            this.txt_concepto.Name = "txt_concepto";
+            this.txt_concepto.Size = new System.Drawing.Size(109, 20);
+            this.txt_concepto.TabIndex = 1;
             // 
             // label1
             // 
@@ -96,6 +96,7 @@ namespace Automatic_Report.View
             this.btn_add.TabIndex = 7;
             this.btn_add.Text = "Añadir";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // AddField
             // 
@@ -108,7 +109,7 @@ namespace Automatic_Report.View
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_concepto);
             this.Name = "AddField";
             this.Text = "Añadir";
             this.ResumeLayout(false);
@@ -117,7 +118,7 @@ namespace Automatic_Report.View
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_concepto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;

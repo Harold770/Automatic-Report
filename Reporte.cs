@@ -29,17 +29,27 @@ namespace Automatic_Report
 
         private void btn_printExcel_Click(object sender, EventArgs e)
         {
-            ReportExcel data = new ReportExcel();
-            string StartDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            string EndDate = dateTimePicker2.Value.ToString("yyyy-MM-dd");
-            try
+            SaveFileDialog Save1 = new SaveFileDialog();
+            Save1.InitialDirectory = @"C:\";
+            Save1.Title = "Browse Text Files";
+            Save1.FileName = "Reporte.xlsx";
+            string Dir;
+            if (Save1.ShowDialog() == DialogResult.OK)
             {
-                data.CreateExcel(StartDate, EndDate);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("El archivo Excel se encuentra abierto o la direccion donde se desea guardar no es accesible", "Error Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                Dir = Save1.FileName;
+                ReportExcel data = new ReportExcel();
+                string StartDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                string EndDate = dateTimePicker2.Value.ToString("yyyy-MM-dd");
+                try
+                {
+                    data.CreateExcel(StartDate, EndDate, Dir);
+                    MessageBox.Show("Archivo Excel Generado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("El archivo Excel se encuentra abierto o la direccion donde se desea guardar no es accesible", "Error Excel", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }            
 
         }
     }

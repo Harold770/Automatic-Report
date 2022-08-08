@@ -36,17 +36,21 @@ namespace Automatic_Report.Connection
             conn.Close();
         }
 
-        public DataSet ExecuteCommand(string command)
+        public bool ExecuteInsertCommand(string command)
         {
             var cmd = new MySqlCommand(command, ConnectExecute());
-            MySqlDataReader rdr = cmd.ExecuteReader();
-            DataSet dataSet = new DataSet();
-            DataTable table = new DataTable();
-            dataSet.Tables.Add(table);
-            dataSet.EnforceConstraints = false;
-            table.Load(rdr);
-            rdr.Close();
-            return dataSet;
+            try
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            
         }
     }
 }
